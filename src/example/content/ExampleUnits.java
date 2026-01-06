@@ -1,28 +1,34 @@
-package example.content;
+package biotech.content;
 
-import arc.graphics.Blending;
-import arc.graphics.Color;
-import arc.math.Mathf;
-import arc.math.geom.Rect;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.effect.ExplosionEffect;
-import mindustry.entities.part.RegionPart;
-import mindustry.gen.Sounds;
-import mindustry.type.Weapon;
+import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.math.*;
+import arc.math.geom.*;
+import arc.struct.*;
+import arc.util.*;
+import mindustry.ai.*;
+import mindustry.ai.types.*;
+import mindustry.entities.*;
+import mindustry.entities.abilities.*;
+import mindustry.entities.bullet.*;
+import mindustry.entities.effect.*;
+import mindustry.entities.part.*;
+import mindustry.entities.pattern.*;
+import mindustry.gen.*;
+import mindustry.graphics.*;
+import mindustry.type.*;
+import mindustry.type.ammo.*;
+import mindustry.type.unit.*;
+import mindustry.type.weapons.*;
+import mindustry.world.meta.*;
 
-public class ExampleUnitTypes
+public class ExampleUnits
 {
-    //region standard
-
-    //tank
-    public static @EntityDef({Unitc.class, ExampleTankc.class}) ExampleUnitType cax;
-
-    //endregion
+    public static UnitType cax;
 
     public static void load() {
-        //region example -tank
 
-        cax = new ExampleUnitType("cax") {{
+        cax = new UnitType("cax") {{
             hitSize = 46f;
             treadPullOffset = 1;
             speed = 0.48f;
@@ -195,6 +201,5 @@ public class ExampleUnitTypes
             }});
         }};
 
-        //endregion
     }
 }
