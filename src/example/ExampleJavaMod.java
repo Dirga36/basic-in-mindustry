@@ -36,7 +36,7 @@ public class ExampleJavaMod extends Mod{
         Log.info("Loading some example content.");
 
         ExampleUnits.load();
-        //ExampleBlocks.load();
+        ExampleBlocks.load();
     }
 
 }
