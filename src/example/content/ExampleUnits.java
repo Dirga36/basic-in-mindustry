@@ -48,7 +48,7 @@ public class ExampleUnits
             float xo = 231f / 2f, yo = 231f / 2f;
             treadRects = new Rect[]{new Rect(27 - xo, 152 - yo, 56, 73), new Rect(24 - xo, 51 - 9 - yo, 29, 17), new Rect(59 - xo, 18 - 9 - yo, 39, 19)};
 
-            weapons.add(new Weapon("cax-weapon") {{
+            weapons.add(new Weapon("example-java-mod-cax-weapon") {{
                 shootSound = ExampleSounds.largeCannon;
                 layerOffset = 0.1f;
                 reload = 100f;
