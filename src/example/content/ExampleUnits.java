@@ -30,6 +30,9 @@ public class ExampleUnits
     public static void load() {
 
         cax = new UnitType("cax") {{
+            constructor = TankUnit::create;
+            aiController = GroundAI::new;
+
             hitSize = 46f;
             treadPullOffset = 1;
             speed = 0.48f;
