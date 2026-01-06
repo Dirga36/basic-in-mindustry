@@ -38,7 +38,7 @@ public class ExampleUnits
             aiController = GroundAI::new;
 
             hitSize = 46f;
-            treadPullOffset = 1;
+            treadPullOffset = 1; //probably treads
             speed = 0.48f;
             health = 22000;
             armor = 26f;
@@ -59,7 +59,7 @@ public class ExampleUnits
                 rotateSpeed = 0.6f;
                 mirror = false;
                 x = 0f;
-                y = -2f;
+                y = -1f;
                 shadow = 50f;
                 heatColor = Color.valueOf("f9350f");
                 shootWarmupSpeed = 0.06f;
