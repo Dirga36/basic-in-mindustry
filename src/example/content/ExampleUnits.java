@@ -1,4 +1,4 @@
-package biotech.content;
+package example.content;
 
 import arc.graphics.*;
 import arc.graphics.g2d.*;
@@ -7,6 +7,7 @@ import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.*;
 import mindustry.ai.*;
+import mindustry.content.Fx;
 import mindustry.ai.types.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
@@ -41,7 +42,7 @@ public class ExampleUnits
             treadRects = new Rect[]{new Rect(27 - xo, 152 - yo, 56, 73), new Rect(24 - xo, 51 - 9 - yo, 29, 17), new Rect(59 - xo, 18 - 9 - yo, 39, 19)};
 
             weapons.add(new Weapon("cax-weapon") {{
-                shootSound = Sounds.largeCannon;
+                //shootSound = ExampleSounds.largeCannon;
                 layerOffset = 0.1f;
                 reload = 100f;
                 shootY = 32.5f;
