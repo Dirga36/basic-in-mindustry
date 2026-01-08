@@ -2,7 +2,6 @@ package example.content;
 
 import arc.graphics.Blending;
 import arc.graphics.Color;
-import arc.math.Mathf;
 import arc.math.geom.Rect;
 import example.type.unit.ExampleUnitType;
 import mindustry.ai.types.GroundAI;
@@ -23,7 +22,7 @@ public class ExampleUnits {
             aiController = GroundAI::new;
 
             hitSize = 46f;
-            treadPullOffset = 10; //probably treads
+            treadPullOffset = 1; //probably treads
             speed = 0.48f;
             health = 22000;
             armor = 26f;
@@ -44,7 +43,7 @@ public class ExampleUnits {
                 rotateSpeed = 0.6f;
                 mirror = false;
                 x = 0f;
-                y = -1f;
+                y = 7f;
                 shadow = 50f;
                 heatColor = Color.valueOf("f9350f");
                 shootWarmupSpeed = 0.06f;
@@ -140,60 +139,34 @@ public class ExampleUnits {
                         sparkStroke = 3f;
                     }};
 
-                    int count = 6;
-                    for (int j = 0; j < count; j++) {
-                        int s = j;
-                        for (int i : Mathf.signs) {
-                            float fin = 0.05f + (j + 1) / (float) count;
-                            float spd = speed;
-                            float life = lifetime / Mathf.lerp(fin, 1f, 0.5f);
-                            spawnBullets.add(new BasicBulletType(spd * fin, 60) {{
-                                drag = 0.002f;
-                                width = 12f;
-                                height = 11f;
-                                lifetime = life + 5f;
-                                weaveRandom = false;
-                                hitSize = 5f;
-                                pierceCap = 2;
-                                pierce = true;
-                                pierceBuilding = true;
-                                hitColor = backColor = trailColor = Color.valueOf("feb380");
-                                frontColor = Color.white;
-                                trailWidth = 2.5f;
-                                trailLength = 7;
-                                weaveScale = (3f + s / 2f) / 1.2f;
-                                weaveMag = i * (4f - fin * 2f);
+                    splashDamage = 65f;
+                    splashDamageRadius = 70f;
+                    despawnEffect = new ExplosionEffect() {{
+                        lifetime = 50f;
+                        waveStroke = 4f;
+                        waveColor = sparkColor = trailColor;
+                        waveRad = 30f;
+                        smokeSize = 7f;
+                        smokes = 6;
+                        smokeSizeBase = 0f;
+                        smokeColor = trailColor;
+                        sparks = 5;
+                        sparkRad = 30f;
+                        sparkLen = 3f;
+                        sparkStroke = 1.5f;
+                    }};
 
-                                splashDamage = 65f;
-                                splashDamageRadius = 30f;
-                                despawnEffect = new ExplosionEffect() {{
-                                    lifetime = 50f;
-                                    waveStroke = 4f;
-                                    waveColor = sparkColor = trailColor;
-                                    waveRad = 30f;
-                                    smokeSize = 7f;
-                                    smokes = 6;
-                                    smokeSizeBase = 0f;
-                                    smokeColor = trailColor;
-                                    sparks = 5;
-                                    sparkRad = 30f;
-                                    sparkLen = 3f;
-                                    sparkStroke = 1.5f;
-                                }};
-                            }});
-                        }
-                    }
                 }};
             }});
 
             weapons.add(new Weapon("example-java-mod-cax-point-weapon") {{
-                reload = 0.3f;
-                x = 20f;
-                y = 0f;
+                reload = 5f;
+                x = 3f;
+                y = 5.5f;
                 shootY = 5.5f;
-                recoil = 2f;
-                rotate = true;
-                rotateSpeed = 2f;
+                recoil = 0f;
+                rotate = false;
+                mirror = false;
 
                 bullet = new BasicBulletType(4.5f, 25) {{
                     width = 6.5f;
