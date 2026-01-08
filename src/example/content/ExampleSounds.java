@@ -7,13 +7,10 @@ import arc.audio.Sound;
 import mindustry.Vars;
 
 public class ExampleSounds {
-    public static Sound
-        largeCannon = new Sound();
-
-    public static void load(){
-        largeCannon = loadSound("large-cannon");
-    }
-
+    public static Sound largeCannon = new Sound();
+    public static Sound mediumCannon = new Sound();
+    public static Sound dullExplosion = new Sound();
+    
     private static Sound loadSound(String soundName){
         if(!Vars.headless) {
             String name = "sounds/" + soundName;
@@ -29,5 +26,11 @@ public class ExampleSounds {
         } else {
             return new Sound();
         }
+    }
+
+    public static void load(){
+        largeCannon = loadSound("basic-in-mindustry-large-cannon");
+        mediumCannon = loadSound("basic-in-mindustry-medium-cannon");
+        dullExplosion = loadSound("basic-in-mindustry-dull-explosion");
     }
 }

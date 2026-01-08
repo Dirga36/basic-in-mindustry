@@ -1,34 +1,19 @@
 package example.content;
 
-import arc.graphics.*;
-import arc.graphics.g2d.*;
-import arc.math.*;
-import arc.math.geom.*;
-import arc.struct.*;
-import arc.util.*;
-
+import arc.graphics.Blending;
+import arc.graphics.Color;
+import arc.math.Mathf;
+import arc.math.geom.Rect;
 import example.type.unit.ExampleUnitType;
-import example.content.ExampleSounds.*;
-
-import mindustry.ai.*;
+import mindustry.ai.types.GroundAI;
 import mindustry.content.Fx;
-import mindustry.ai.types.*;
-import mindustry.entities.*;
-import mindustry.entities.abilities.*;
-import mindustry.entities.bullet.*;
-import mindustry.entities.effect.*;
-import mindustry.entities.part.*;
-import mindustry.entities.pattern.*;
-import mindustry.gen.*;
-import mindustry.graphics.*;
-import mindustry.type.*;
-import mindustry.type.ammo.*;
-import mindustry.type.unit.*;
-import mindustry.type.weapons.*;
-import mindustry.world.meta.*;
+import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.effect.ExplosionEffect;
+import mindustry.entities.part.RegionPart;
+import mindustry.gen.TankUnit;
+import mindustry.type.Weapon;
 
-public class ExampleUnits
-{
+public class ExampleUnits {
     public static ExampleUnitType cax;
 
     public static void load() {
@@ -38,7 +23,7 @@ public class ExampleUnits
             aiController = GroundAI::new;
 
             hitSize = 46f;
-            treadPullOffset = 1; //probably treads
+            treadPullOffset = 10; //probably treads
             speed = 0.48f;
             health = 22000;
             armor = 26f;
@@ -198,6 +183,28 @@ public class ExampleUnits
                             }});
                         }
                     }
+                }};
+            }});
+
+            weapons.add(new Weapon("example-java-mod-cax-point-weapon") {{
+                reload = 0.3f;
+                x = 20f;
+                y = 0f;
+                shootY = 5.5f;
+                recoil = 2f;
+                rotate = true;
+                rotateSpeed = 2f;
+
+                bullet = new BasicBulletType(4.5f, 25) {{
+                    width = 6.5f;
+                    height = 11f;
+                    shootEffect = Fx.sparkShoot;
+                    smokeEffect = Fx.shootBigSmoke;
+                    hitColor = backColor = trailColor = Color.valueOf("feb380");
+                    frontColor = Color.white;
+                    trailWidth = 1.5f;
+                    trailLength = 4;
+                    hitEffect = despawnEffect = Fx.hitBulletColor;
                 }};
             }});
 
